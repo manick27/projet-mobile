@@ -52,7 +52,7 @@ class _CalculatriceAppState extends State<CalculatriceApp> {
             Expression epx = p.parse(expression);
             ContextModel cm = ContextModel();
             resultat = "${epx.evaluate(EvaluationType.REAL, cm)}";
-            equation = resultat;
+            equation = "";
           }catch(e){
             resultat = "Erreur de syntaxe";
             print(e);
@@ -80,6 +80,20 @@ class _CalculatriceAppState extends State<CalculatriceApp> {
             child: Text(texte,
                 style:
                     TextStyle(color: fontColor, fontWeight: FontWeight.bold))));
+  }
+
+  Widget EqualButton(
+      String texte, Color fontColor, Color backColor, double taille) {
+    return Container(
+        color: backColor,
+        height: MediaQuery.of(context).size.height * 0.1 * taille,
+        width: MediaQuery.of(context).size.width,
+        child: MaterialButton(
+            onPressed: ()=> pressedButton(texte),
+            padding: const EdgeInsets.all(16),
+            child: Text(texte,
+                style:
+                TextStyle(color: fontColor, fontWeight: FontWeight.bold,fontSize: MediaQuery.of(context).size.height * 0.05 * taille))));
   }
 
   @override
@@ -112,28 +126,7 @@ class _CalculatriceAppState extends State<CalculatriceApp> {
                 width: MediaQuery.of(context).size.width * 0.75,
                 child: Table(
                   children: [
-                    TableRow(
-                      children: [
-                        CalculatriceButton("C", Colors.black, Colors.grey, 1),
-                        CalculatriceButton("÷", Colors.black, Colors.grey, 1),
-                        CalculatriceButton("*", Colors.black, Colors.grey, 1),
-                      ],
-                    ),
-                    TableRow(
-                      children: [
-                        CalculatriceButton("7", Colors.black, Colors.grey, 1),
-                        CalculatriceButton("8", Colors.black, Colors.grey, 1),
-                        CalculatriceButton("9", Colors.black, Colors.grey, 1),
-                      ],
-                    ),
 
-                    TableRow(
-                      children: [
-                        CalculatriceButton("4", Colors.black, Colors.grey, 1),
-                        CalculatriceButton("5", Colors.black, Colors.grey, 1),
-                        CalculatriceButton("6", Colors.black, Colors.grey, 1),
-                      ],
-                    ),
                     TableRow(
                       children: [
                         CalculatriceButton("1", Colors.black, Colors.grey, 1),
@@ -143,9 +136,24 @@ class _CalculatriceAppState extends State<CalculatriceApp> {
                     ),
                     TableRow(
                       children: [
-                        CalculatriceButton("00", Colors.black, Colors.grey, 1),
+                        CalculatriceButton("4", Colors.black, Colors.grey, 1),
+                        CalculatriceButton("5", Colors.black, Colors.grey, 1),
+                        CalculatriceButton("6", Colors.black, Colors.grey, 1),
+                      ],
+                    ),
+
+                    TableRow(
+                      children: [
+                        CalculatriceButton("7", Colors.black, Colors.grey, 1),
+                        CalculatriceButton("8", Colors.black, Colors.grey, 1),
+                        CalculatriceButton("9", Colors.black, Colors.grey, 1),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
                         CalculatriceButton("0", Colors.black, Colors.grey, 1),
                         CalculatriceButton(".", Colors.black, Colors.grey, 1),
+                        CalculatriceButton("C", Colors.black, Colors.grey, 1),
                       ],
                     ),
                   ],
@@ -157,7 +165,7 @@ class _CalculatriceAppState extends State<CalculatriceApp> {
                   children: [
                     TableRow(
                       children: [
-                        CalculatriceButton("⌫", Colors.black, Colors.grey, 1),
+                        CalculatriceButton("+", Colors.black, Colors.grey, 1),
                       ],
                     ),
                     TableRow(
@@ -167,12 +175,12 @@ class _CalculatriceAppState extends State<CalculatriceApp> {
                     ),
                     TableRow(
                       children: [
-                        CalculatriceButton("+", Colors.black, Colors.grey, 1),
+                        CalculatriceButton("*", Colors.black, Colors.grey, 1),
                       ],
                     ),
                     TableRow(
                       children: [
-                        CalculatriceButton("=", Colors.white, Colors.blueAccent, 2),
+                        CalculatriceButton("/", Colors.black, Colors.grey, 1),
                       ],
                     ),
                   ],
@@ -180,6 +188,9 @@ class _CalculatriceAppState extends State<CalculatriceApp> {
               )
             ],
           ),
+          Container(
+            child: EqualButton("=", Colors.white, Colors.blueAccent, 1),
+          )
         ],
       ),
     );
