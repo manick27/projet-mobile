@@ -87,13 +87,13 @@ class _CalculatriceAppState extends State<CalculatriceApp> {
     return Container(
         color: backColor,
         height: MediaQuery.of(context).size.height * 0.1 * taille,
-        width: MediaQuery.of(context).size.width,
+        width: MediaQuery.of(context).size.width * .5,
         child: MaterialButton(
             onPressed: ()=> pressedButton(texte),
             padding: const EdgeInsets.all(16),
             child: Text(texte,
                 style:
-                TextStyle(color: fontColor, fontWeight: FontWeight.bold,fontSize: MediaQuery.of(context).size.height * 0.05 * taille))));
+                TextStyle(color: fontColor, fontWeight: FontWeight.bold))));
   }
 
   @override
@@ -189,7 +189,12 @@ class _CalculatriceAppState extends State<CalculatriceApp> {
             ],
           ),
           Container(
-            child: EqualButton("=", Colors.white, Colors.blueAccent, 1),
+            child: Row(
+             children: [
+               EqualButton("=", Colors.white, Colors.blueAccent, 1),
+               EqualButton("⌫", Colors.black, Colors.grey, 1),
+             ],
+            )
           )
         ],
       ),
