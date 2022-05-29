@@ -12,6 +12,4 @@ MGUEWOUO MBAKOP MANICK                   CM-UDS-19SCI2083
 
 AWAH NCHULABEMINYE AUSTIN                CM-UDS-19SCI1487
 
-x-special/nautilus-clipboard
-copy
-file:///home/thierry/Videos/Screenshot%202022-05-29%2016:00:48.png
+
