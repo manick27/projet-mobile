@@ -13,6 +13,7 @@ MGUEWOUO MBAKOP MANICK                   CM-UDS-19SCI2083
 AWAH NCHULABEMINYE AUSTIN                CM-UDS-19SCI1487
 
 
+<img src="https://github.com/manick27/projet-mobile/tree/main/image/image.png" />
 https://github.com/manick27/projet-mobile/tree/main/image/image.png
 
 Ce qu'on a fait:
